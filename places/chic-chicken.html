@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="../about.html">About</a></li>
+                <li><a href="../about.html">About Me</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -25,146 +24,175 @@
 
     <main>
 
-        <h1>Chic-Chicken</h1>
+        <h2>Chic-Chicken</h2>
 
-        <img src="../chic-chicken.jpg"
-             alt="Chicken meal from Chic-Chicken"
-             width="500">
+        <img src="../chic-chicken.jpg" alt="Chic-Chicken food">
 
-        <h2>About Chic-Chicken</h2>
+        <section>
 
-        <p>
-            Chic-Chicken is a food spot that offers tasty and satisfying
-            chicken meals. I recommend this place because the food is
-            flavorful, affordable, and enjoyable for anyone who loves
-            Filipino-style chicken meals. It is a good choice for students,
-            families, and anyone looking for a filling meal.
-        </p>
+            <h3>About Chic-Chicken</h3>
 
-        <p>
-            If you enjoy chicken dishes and want something simple and
-            satisfying, Chic-Chicken is a food spot worth trying.
-        </p>
+            <p>
+                Chic-Chicken is a food spot where you can enjoy tasty
+                and affordable chicken meals. It is a great option for
+                people who are looking for a satisfying meal.
+            </p>
 
-        <h2>Place Details</h2>
+        </section>
 
-        <table border="1">
-            <tr>
-                <th>Category</th>
-                <th>Details</th>
-            </tr>
 
-            <tr>
-                <th>Food Type</th>
-                <td>Chicken Meals</td>
-            </tr>
+        <section>
 
-            <tr>
-                <th>Price Range</th>
-                <td>Affordable</td>
-            </tr>
+            <h3>Place Details</h3>
 
-            <tr>
-                <th>Best For</th>
-                <td>Students and Families</td>
-            </tr>
+            <table border="1">
 
-            <tr>
-                <th>Recommended For</th>
-                <td>Chicken Lovers</td>
-            </tr>
-        </table>
+                <tr>
+                    <th>Category</th>
+                    <th>Details</th>
+                </tr>
 
-        <h2>Suggest a Place</h2>
+                <tr>
+                    <td>Food Type</td>
+                    <td>Chicken Meals</td>
+                </tr>
 
-        <form>
-            <fieldset>
+                <tr>
+                    <td>Price</td>
+                    <td>Affordable</td>
+                </tr>
 
-                <legend>Place Suggestion</legend>
+                <tr>
+                    <td>Recommended</td>
+                    <td>Chicken Meals</td>
+                </tr>
 
-                <p>
-                    <label for="place-name">Place Name</label><br>
-                    <input type="text"
-                           id="place-name"
-                           name="place-name"
-                           required>
-                </p>
+            </table>
+
+        </section>
+
+
+        <section>
+
+            <h3>Suggest a Place</h3>
+
+            <form>
 
                 <fieldset>
 
-                    <legend>Category</legend>
+                    <legend>Your Recommendation</legend>
 
                     <p>
-                        <input type="radio"
-                               id="food"
-                               name="category"
-                               value="food">
+                        <label for="place-name">
+                            Place Name:
+                        </label><br>
 
-                        <label for="food">Food</label>
+                        <input
+                            type="text"
+                            id="place-name"
+                            name="place-name"
+                        >
                     </p>
 
                     <p>
-                        <input type="radio"
-                               id="study-spot"
-                               name="category"
-                               value="study-spot">
+                        <label for="place-email">
+                            Your Email:
+                        </label><br>
 
-                        <label for="study-spot">Study Spot</label>
+                        <input
+                            type="email"
+                            id="place-email"
+                            name="place-email"
+                        >
                     </p>
+
+                    <fieldset>
+
+                        <legend>Food Type</legend>
+
+                        <p>
+                            <input
+                                type="radio"
+                                id="street-food"
+                                name="food-type"
+                                value="street-food"
+                            >
+
+                            <label for="street-food">
+                                Street Food
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                type="radio"
+                                id="restaurant"
+                                name="food-type"
+                                value="restaurant"
+                            >
+
+                            <label for="restaurant">
+                                Restaurant
+                            </label>
+                        </p>
+
+                    </fieldset>
+
+
+                    <fieldset>
+
+                        <legend>What do you recommend?</legend>
+
+                        <p>
+                            <input
+                                type="checkbox"
+                                id="food"
+                                name="recommendation"
+                                value="food"
+                            >
+
+                            <label for="food">
+                                Food
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                type="checkbox"
+                                id="place"
+                                name="recommendation"
+                                value="place"
+                            >
+
+                            <label for="place">
+                                Place
+                            </label>
+                        </p>
+
+                    </fieldset>
+
 
                     <p>
-                        <input type="radio"
-                               id="outdoors"
-                               name="category"
-                               value="outdoors">
+                        <label for="suggestion">
+                            Suggestion:
+                        </label><br>
 
-                        <label for="outdoors">Outdoors</label>
+                        <textarea
+                            id="suggestion"
+                            name="suggestion"
+                            rows="6"
+                        ></textarea>
                     </p>
+
+                    <button type="submit">
+                        Submit Suggestion
+                    </button>
 
                 </fieldset>
 
-                <p>What's good about it?</p>
+            </form>
 
-                <p>
-                    <input type="checkbox"
-                           id="affordable"
-                           name="good-points"
-                           value="affordable">
-
-                    <label for="affordable">Affordable</label>
-                </p>
-
-                <p>
-                    <input type="checkbox"
-                           id="good-wifi"
-                           name="good-points"
-                           value="good-wifi">
-
-                    <label for="good-wifi">Good Wi-Fi</label>
-                </p>
-
-                <p>
-                    <input type="checkbox"
-                           id="quiet"
-                           name="good-points"
-                           value="quiet">
-
-                    <label for="quiet">Quiet</label>
-                </p>
-
-                <p>
-                    <label for="email">Contact Email</label><br>
-
-                    <input type="email"
-                           id="email"
-                           name="email"
-                           required>
-                </p>
-
-                <button type="submit">Send Suggestion</button>
-
-            </fieldset>
-        </form>
+        </section>
 
     </main>
 
@@ -173,5 +201,4 @@
     </footer>
 
 </body>
-
 </html>

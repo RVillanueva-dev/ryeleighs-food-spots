@@ -121,7 +121,7 @@ footer {
    4. COMPONENTS - PLACE CARDS
 ======================================== */
 
-article {
+.place-card {
     background-color: var(--card-background);
     border-left: 7px solid var(--brand-color);
     border-radius: 18px;
@@ -131,21 +131,22 @@ article {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-article:hover {
+.place-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 28px var(--shadow-hover);
 }
 
-article h3 {
+.place-card h3 {
     font-size: 25px;
+    color: var(--brand-color);
     margin-top: 0;
 }
 
-article p {
+.place-card p {
     color: var(--muted-grey);
 }
 
-article img {
+.place-card img {
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -153,7 +154,7 @@ article img {
     margin-top: 8px;
 }
 
-article a {
+.place-card a {
     display: inline-block;
     margin-top: 10px;
     color: var(--brand-color);
@@ -161,7 +162,7 @@ article a {
     text-decoration: none;
 }
 
-article a:hover {
+.place-card a:hover {
     text-decoration: underline;
 }
 
@@ -234,8 +235,12 @@ button:hover {
 ======================================== */
 
 input:focus,
+textarea:focus {
+    outline: 3px solid var(--brand-color);
+    outline-offset: 2px;
+}
+
 select:focus,
-textarea:focus,
 button:focus {
     outline: 3px solid var(--yellow-accent);
     outline-offset: 2px;

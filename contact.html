@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html">About Me</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -27,50 +27,64 @@
         <h2>Contact Me</h2>
 
         <p>
-            If you have questions, suggestions, or want to recommend a food
-            spot, you can reach me through the following:
+            Have a food spot you want to recommend? Feel free to contact me!
         </p>
 
-        <ul>
-            <li>Email: ryeleighfoodspots@gmail.com</li>
-            <li>Facebook: Ryeleigh Villanueva</li>
-        </ul>
+        <section>
 
-        <h3>Send Me a Message</h3>
+            <h3>Send a Message</h3>
 
-        <form>
-            <fieldset>
-                <legend>Your details</legend>
+            <form>
 
-                <p>
-                    <label for="name">Name</label><br>
-                    <input type="text" id="name" name="name" required>
-                </p>
+                <fieldset>
 
-                <p>
-                    <label for="email">Email</label><br>
-                    <input type="email" id="email" name="email" required>
-                </p>
+                    <legend>Contact Information</legend>
 
-                <p>
-                    <label for="subject">Subject</label><br>
-                    <select id="subject" name="subject">
-                        <option value="suggest-place">Suggest a place</option>
-                        <option value="correct-detail">Correct a detail</option>
-                        <option value="ask-question">Ask a question</option>
-                        <option value="something-else">Something else</option>
-                    </select>
-                </p>
+                    <p>
+                        <label for="name">Name:</label><br>
+                        <input type="text" id="name" name="name">
+                    </p>
 
-                <p>
-                    <label for="message">Message</label><br>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </p>
+                    <p>
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email">
+                    </p>
 
-                <button type="submit">Send message</button>
+                    <p>
+                        <label for="subject">Subject:</label><br>
 
-            </fieldset>
-        </form>
+                        <select id="subject" name="subject">
+                            <option value="recommendation">
+                                Food Recommendation
+                            </option>
+
+                            <option value="question">
+                                Question
+                            </option>
+
+                            <option value="feedback">
+                                Feedback
+                            </option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="message">Message:</label><br>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                        ></textarea>
+                    </p>
+
+                    <button type="submit">Send Message</button>
+
+                </fieldset>
+
+            </form>
+
+        </section>
 
     </main>
 
