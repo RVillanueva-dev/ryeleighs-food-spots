@@ -1,26 +1,25 @@
 /* ========================================
-
 1. VARIABLES
-   ======================================== */
+======================================== */
 
 :root {
---brand-color: #FF6B4A;
---dark-ink: #172A3A;
---muted-grey: #5F6C76;
---light-background: #F4F9F8;
+  --brand-color: #FF6B4A;
+  --dark-ink: #172A3A;
+  --muted-grey: #5F6C76;
+  --light-background: #F4F9F8;
 
---header-background: #172A3A;
---card-background: #FFFFFF;
---soft-accent: #DDF3EA;
---yellow-accent: #FFD166;
---border-color: #D9E5E2;
---input-background: #F8FBFA;
---button-text: #FFFFFF;
+  --header-background: #172A3A;
+  --card-background: #FFFFFF;
+  --soft-accent: #DDF3EA;
+  --yellow-accent: #FFD166;
+  --border-color: #D9E5E2;
+  --input-background: #F8FBFA;
+  --button-text: #FFFFFF;
 
---shadow-color: rgba(23, 42, 58, 0.12);
---shadow-hover: rgba(23, 42, 58, 0.20);
-
+  --shadow-color: rgba(23, 42, 58, 0.12);
+  --shadow-hover: rgba(23, 42, 58, 0.20);
 }
+
 
 /* ========================================
 2. BASE STYLES
@@ -28,264 +27,383 @@
 
 * {
   box-sizing: border-box;
-  }
+}
 
 body {
-margin: 0;
-font-family: Arial, sans-serif;
-line-height: 1.6;
-color: var(--dark-ink);
-background-color: var(--light-background);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-ink);
+  background-color: var(--light-background);
 }
+
 
 /* ========================================
-3. LAYOUT REGIONS
+3. PAGE LAYOUT - CSS GRID
 ======================================== */
 
-/* FLEXBOX HEADER */
+.page {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+
+  grid-template-areas:
+    "masthead masthead"
+    "side main"
+    "foot foot";
+
+  gap: 16px;
+}
+
+
+/* ========================================
+4. GRID AREA ASSIGNMENTS
+======================================== */
 
 .site-header {
-background-color: var(--header-background);
-color: var(--button-text);
-padding: 25px 40px;
-
-display: flex;
-justify-content: space-between;
-align-items: center;
-
+  grid-area: masthead;
 }
 
-.site-header h1 {
-color: var(--yellow-accent);
-margin: 0;
-font-size: 32px;
-letter-spacing: 1px;
-}
-
-/* FLEXBOX NAVIGATION */
-
-.site-header nav ul {
-list-style: none;
-padding: 0;
-margin: 0;
-
-
-display: flex;
-gap: 20px;
-
-
-}
-
-.site-header nav li {
-margin: 0;
-}
-
-.site-header nav a {
-color: var(--button-text);
-text-decoration: none;
-font-weight: bold;
-padding: 8px 12px;
-border-radius: 20px;
-}
-
-.site-header nav a:hover {
-background-color: var(--soft-accent);
-color: var(--brand-color);
+aside {
+  grid-area: side;
 }
 
 main {
-max-width: 1050px;
-margin: 0 auto;
-padding: 45px 20px;
-}
-
-main > p {
-font-size: 18px;
-color: var(--muted-grey);
-}
-
-h2 {
-color: var(--dark-ink);
-margin-top: 35px;
-font-size: 30px;
-}
-
-h3 {
-color: var(--brand-color);
+  grid-area: main;
 }
 
 footer {
-background-color: var(--dark-ink);
-color: var(--button-text);
-text-align: center;
-padding: 28px;
-margin-top: 40px;
+  grid-area: foot;
 }
 
+
 /* ========================================
-4. COMPONENTS - PLACE CARDS
+5. HEADER - FLEXBOX
+======================================== */
+
+.site-header {
+  background-color: var(--header-background);
+  color: var(--button-text);
+  padding: 25px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
+  color: var(--yellow-accent);
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+
+/* ========================================
+6. NAVIGATION - FLEXBOX
+======================================== */
+
+.site-header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  gap: 20px;
+}
+
+.site-header nav li {
+  margin: 0;
+}
+
+.site-header nav a {
+  color: var(--button-text);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+.site-header nav a:hover {
+  background-color: var(--soft-accent);
+  color: var(--brand-color);
+}
+
+
+/* ========================================
+7. SIDEBAR
+======================================== */
+
+aside {
+  background-color: var(--card-background);
+  border-left: 5px solid var(--brand-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-left: 20px;
+  height: fit-content;
+
+  box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+aside h2 {
+  font-size: 22px;
+  margin-top: 0;
+  color: var(--brand-color);
+}
+
+aside h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+aside ul {
+  padding-left: 20px;
+}
+
+aside li {
+  margin-bottom: 10px;
+}
+
+
+/* ========================================
+8. MAIN CONTENT
+======================================== */
+
+main {
+  max-width: 1050px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 45px 20px;
+}
+
+main > p {
+  font-size: 18px;
+  color: var(--muted-grey);
+}
+
+h2 {
+  color: var(--dark-ink);
+  margin-top: 35px;
+  font-size: 30px;
+}
+
+h3 {
+  color: var(--brand-color);
+}
+
+
+/* ========================================
+9. COMPONENTS - PLACE CARDS
+FLEXBOX
 ======================================== */
 
 .place-grid {
-display: flex;
-flex-wrap: wrap;
-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .place-card {
-flex: 1 1 240px;
-background-color: var(--card-background);
-border-left: 7px solid var(--brand-color);
-border-radius: 18px;
-padding: 28px;
-margin-bottom: 0;
-box-shadow: 0 6px 20px var(--shadow-color);
+  flex: 1 1 240px;
 
+  background-color: var(--card-background);
+  border-left: 7px solid var(--brand-color);
+  border-radius: 18px;
 
-transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 28px;
+  margin-bottom: 0;
 
+  box-shadow: 0 6px 20px var(--shadow-color);
 
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease;
 }
 
 .place-card:hover {
-transform: translateY(-6px);
-box-shadow: 0 10px 28px var(--shadow-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px var(--shadow-hover);
 }
 
 .place-card h3 {
-font-size: 25px;
-color: var(--brand-color);
-margin-top: 0;
+  font-size: 25px;
+  color: var(--brand-color);
+  margin-top: 0;
 }
 
 .place-card p {
-color: var(--muted-grey);
+  color: var(--muted-grey);
 }
 
 .place-card img {
-width: 100%;
-max-width: 500px;
-height: auto;
-border-radius: 14px;
-margin-top: 8px;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 14px;
+  margin-top: 8px;
 }
 
 .place-card a {
-display: inline-block;
-margin-top: 10px;
-color: var(--brand-color);
-font-weight: bold;
-text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+
+  color: var(--brand-color);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .place-card a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
+
 /* ========================================
-5. IMAGES
+10. IMAGES
 ======================================== */
 
 main > section img {
-max-width: 100%;
-height: auto;
-border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
 }
 
+
 /* ========================================
-6. FORMS
+11. FORMS
 ======================================== */
 
 fieldset {
-background-color: var(--card-background);
-border: 2px solid var(--border-color);
-border-radius: 16px;
-padding: 25px;
-margin-bottom: 20px;
+  background-color: var(--card-background);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+
+  padding: 25px;
+  margin-bottom: 20px;
 }
 
 legend {
-color: var(--brand-color);
-font-size: 20px;
-font-weight: bold;
-padding: 0 10px;
+  color: var(--brand-color);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
 }
 
 input,
 select,
 textarea {
-padding: 12px;
-border: 2px solid var(--border-color);
-border-radius: 8px;
-background-color: var(--input-background);
-color: var(--dark-ink);
-font-family: Arial, sans-serif;
-font-size: 16px;
+  padding: 12px;
+
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+
+  background-color: var(--input-background);
+  color: var(--dark-ink);
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }
 
 textarea {
-width: 100%;
-max-width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
 
 button {
-background-color: var(--brand-color);
-color: var(--button-text);
-padding: 13px 22px;
-border: none;
-border-radius: 8px;
-cursor: pointer;
-font-weight: bold;
-font-size: 16px;
+  background-color: var(--brand-color);
+  color: var(--button-text);
+
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-weight: bold;
+  font-size: 16px;
 }
 
 button:hover {
-background-color: var(--dark-ink);
+  background-color: var(--dark-ink);
 }
 
+
 /* ========================================
-7. FOCUS STATES
+12. FOCUS STATES
 ======================================== */
 
 input:focus,
 textarea:focus {
-outline: 3px solid var(--brand-color);
-outline-offset: 2px;
+  outline: 3px solid var(--brand-color);
+  outline-offset: 2px;
 }
 
 select:focus,
 button:focus {
-outline: 3px solid var(--yellow-accent);
-outline-offset: 2px;
+  outline: 3px solid var(--yellow-accent);
+  outline-offset: 2px;
 }
 
+
 /* ========================================
-8. CENTERED INTRO BANNER
+13. CENTERED INTRO BANNER
 ======================================== */
 
 .intro-banner {
-min-height: 300px;
+  min-height: 300px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-display: flex;
-justify-content: center;
-align-items: center;
+  text-align: center;
 
-text-align: center;
-background-color: var(--soft-accent);
-border-radius: 18px;
-padding: 30px;
-margin-bottom: 40px;
-    
+  background-color: var(--soft-accent);
+  border-radius: 18px;
+
+  padding: 30px;
+  margin-bottom: 40px;
 }
 
 .intro-banner h2 {
-margin-top: 0;
-color: var(--dark-ink);
+  margin-top: 0;
+  color: var(--dark-ink);
 }
 
 .intro-banner p {
-max-width: 700px;
-margin: 0 auto;
-color: var(--muted-grey);
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--muted-grey);
+}
+
+
+/* ========================================
+14. RESPONSIVE LAYOUT
+======================================== */
+
+@media (max-width: 768px) {
+
+  .page {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "masthead"
+      "side"
+      "main"
+      "foot";
+  }
+
+  .site-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  aside {
+    margin-left: 0;
+    margin: 16px;
+  }
+
+  main {
+    padding: 25px 16px;
+  }
+
 }
