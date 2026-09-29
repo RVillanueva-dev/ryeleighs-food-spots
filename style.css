@@ -39,17 +39,19 @@ body {
 
 
 /* ========================================
-3. PAGE LAYOUT - CSS GRID
+3. PAGE LAYOUT - MOBILE FIRST
 ======================================== */
 
+/* Base: mobile layout */
 .page {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr;
 
   grid-template-areas:
-    "masthead masthead"
-    "side main"
-    "foot foot";
+    "masthead"
+    "main"
+    "side"
+    "foot";
 
   gap: 16px;
 }
@@ -83,17 +85,21 @@ footer {
 .site-header {
   background-color: var(--header-background);
   color: var(--button-text);
-  padding: 25px 40px;
+  padding: 25px 20px;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  gap: 15px;
+  text-align: center;
 }
 
 .site-header h1 {
   color: var(--yellow-accent);
   margin: 0;
-  font-size: 32px;
+  font-size: 28px;
   letter-spacing: 1px;
 }
 
@@ -108,7 +114,9 @@ footer {
   margin: 0;
 
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .site-header nav li {
@@ -119,7 +127,7 @@ footer {
   color: var(--button-text);
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 20px;
 }
 
@@ -137,8 +145,12 @@ aside {
   background-color: var(--card-background);
   border-left: 5px solid var(--brand-color);
   border-radius: 12px;
+
   padding: 20px;
-  margin-left: 20px;
+
+  margin-left: 16px;
+  margin-right: 16px;
+
   height: fit-content;
 
   box-shadow: 0 6px 20px var(--shadow-color);
@@ -169,10 +181,11 @@ aside li {
 ======================================== */
 
 main {
-  max-width: 1050px;
-  margin: 0 auto;
   width: 100%;
-  padding: 45px 20px;
+  padding: 25px 16px;
+  margin: 0 auto;
+
+  min-width: 0;
 }
 
 main > p {
@@ -200,10 +213,14 @@ FLEXBOX
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+
+  width: 100%;
 }
 
 .place-card {
   flex: 1 1 240px;
+
+  min-width: 0;
 
   background-color: var(--card-background);
   border-left: 7px solid var(--brand-color);
@@ -265,6 +282,11 @@ main > section img {
   border-radius: 16px;
 }
 
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* ========================================
 11. FORMS
@@ -275,8 +297,10 @@ fieldset {
   border: 2px solid var(--border-color);
   border-radius: 16px;
 
-  padding: 25px;
+  padding: 20px;
   margin-bottom: 20px;
+
+  max-width: 100%;
 }
 
 legend {
@@ -299,6 +323,14 @@ textarea {
 
   font-family: Arial, sans-serif;
   font-size: 16px;
+
+  max-width: 100%;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  max-width: 600px;
 }
 
 textarea {
@@ -361,6 +393,8 @@ button:focus {
 
   padding: 30px;
   margin-bottom: 40px;
+
+  width: 100%;
 }
 
 .intro-banner h2 {
@@ -376,34 +410,95 @@ button:focus {
 
 
 /* ========================================
-14. RESPONSIVE LAYOUT
+14. TABLE
 ======================================== */
 
-@media (max-width: 768px) {
+table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  background-color: var(--card-background);
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--soft-accent);
+}
+
+
+/* ========================================
+15. FOOTER
+======================================== */
+
+footer {
+  background-color: var(--header-background);
+  color: var(--button-text);
+
+  text-align: center;
+
+  padding: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* ========================================
+16. RESPONSIVE LAYOUT
+MOBILE FIRST → TABLET/DESKTOP
+======================================== */
+
+/* Tablet and larger screens */
+@media (min-width: 700px) {
 
   .page {
-    grid-template-columns: 1fr;
+    grid-template-columns: 220px 1fr;
 
     grid-template-areas:
-      "masthead"
-      "side"
-      "main"
-      "foot";
+      "masthead masthead"
+      "side main"
+      "foot foot";
   }
 
   .site-header {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    flex-direction: row;
+    padding: 25px 40px;
+    text-align: left;
+  }
+
+  .site-header nav ul {
+    gap: 20px;
+  }
+
+  .site-header nav a {
+    padding: 8px 12px;
   }
 
   aside {
-    margin-left: 0;
-    margin: 16px;
+    margin-left: 20px;
+    margin-right: 0;
   }
 
   main {
-    padding: 25px 16px;
+    max-width: 1050px;
+    padding: 45px 20px;
+  }
+
+}
+
+
+/* Larger desktop screens */
+@media (min-width: 1000px) {
+
+  .site-header h1 {
+    font-size: 32px;
   }
 
 }
