@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
 <div class="page">
 
     <header class="site-header">
-        <h1>Ryeleigh's Food Spots</h1>
+        <h1 id="guide-name">Ryeleigh's Food Spots</h1>
 
         <nav>
             <ul>
@@ -61,6 +62,10 @@
 
         <section>
             <h2>My Top Picks</h2>
+
+            <p>
+                Places reviewed: <span id="place-count">0</span>
+            </p>
 
             <div class="place-grid">
 
@@ -115,10 +120,11 @@
 
 
     <footer>
-        <p>&copy; 2026 Ryeleigh's Food Spots</p>
+        <p id="copyright"></p>
     </footer>
 
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
